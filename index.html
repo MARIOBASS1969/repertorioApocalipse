@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Repertório - Grupo Apocalipse</title>
+    <title>Repertório Eyane</title>
 
     <style>
       * {
@@ -31,6 +31,8 @@
         --text: #222;
         --accent: #0077ff;
       }
+
+      /* BODY */
 
       body {
         background: linear-gradient(135deg, var(--bg), #203a43, #2c5364);
@@ -99,23 +101,33 @@
 
       /* IMAGENS */
 
-      .mens {
-        width: 180px;
+      .mens,
+      .eya {
+        width: 170px;
         border-radius: 10px;
         margin: 10px;
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
         transition: 0.4s;
       }
 
-      .mens:hover {
+      .mens:hover,
+      .eya:hover {
         transform: scale(1.05);
       }
 
-      /* TÍTULO */
+      /* TITULO */
 
       h2 {
         text-align: center;
         margin: 20px 0;
+      }
+
+      /* CONTADOR */
+
+      .contador {
+        text-align: center;
+        margin-bottom: 20px;
+        font-weight: bold;
       }
 
       /* FILTRO */
@@ -131,34 +143,25 @@
         border: none;
       }
 
-      /* CONTADOR */
-
-      .contador {
-        text-align: center;
-        margin-bottom: 20px;
-        font-weight: bold;
-      }
-
       /* LISTA */
 
       ol {
-        list-style-position: inside;
+        list-style: none;
+        padding: 0;
       }
 
       /* ITEM DA LISTA */
 
       li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
         padding: 12px;
         margin-bottom: 10px;
         background: rgba(255, 255, 255, 0.08);
         border-radius: 8px;
         transition: 0.3s;
-
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 10px;
       }
 
       li:hover {
@@ -166,10 +169,10 @@
         background: rgba(255, 255, 255, 0.15);
       }
 
-      /* TEXTO */
+      /* TEXTO DA MUSICA */
 
-      li span {
-        flex: 1;
+      .musica {
+        font-weight: 500;
       }
 
       /* BOTÃO CIFRA */
@@ -182,11 +185,6 @@
         border-radius: 6px;
         font-size: 14px;
         white-space: nowrap;
-        transition: 0.3s;
-      }
-
-      .cifra:hover {
-        transform: scale(1.1);
       }
 
       /* ANIMAÇÃO */
@@ -209,13 +207,15 @@
           padding: 20px;
         }
 
-        .mens {
-          width: 140px;
+        .mens,
+        .eya {
+          width: 130px;
         }
 
         li {
           flex-direction: column;
           align-items: flex-start;
+          gap: 8px;
         }
 
         .cifra {
@@ -233,7 +233,7 @@
     <div class="container">
       <header>
         <img class="mens" src="images.jpg" />
-        <img class="mens" src="val2.jpeg" />
+        <img class="eya" src="eyane3.jpeg" />
       </header>
 
       <h2>🎵 Músicas</h2>
@@ -267,161 +267,121 @@
       </div>
 
       <ol id="lista">
-        <li data-tom="C">
-          <span>Valeu a pena <strong>(C)</strong></span>
-          <a
-            class="cifra"
-            href="https://www.letras.mus.br/esteves-jacinto/1418524/"
-            target="_blank"
-            >🎸 Cifra</a
-          >
-        </li>
-
-        <li data-tom="Gm">
-          <span>Renova Senhor as forças <strong>(Gm)</strong></span>
-          <a
-            class="cifra"
-            href="https://www.cifraclub.com.br/esteves-jacinto/renovacao/"
-            target="_blank"
-            >🎸 Cifra</a
-          >
-        </li>
-
-        <li data-tom="C">
-          <span>Quem tem Jesus <strong>(C)</strong></span>
-          <a
-            class="cifra"
-            href="https://www.cifraclub.com.br/esteves-jacinto/1937706"
-            target="_blank"
-            >🎸 Cifra</a
-          >
-        </li>
-
         <li data-tom="G">
-          <span>Não há razão <strong>(G)</strong></span>
+          <span class="musica">Comum Imperfeito (G)</span>
           <a
             class="cifra"
-            href="https://www.cifraclub.com.br/esteves-jacinto/nao-ha-razao/"
+            href="https://www.letras.mus.br/cancao-louvor/comum-e-imperfeito-part-anna-clara-rocha/"
+            target="_blank"
+            >🎸 Cifra</a
+          >
+        </li>
+
+        <li data-tom="F">
+          <span class="musica">Nada está perdido (F)</span>
+          <a
+            class="cifra"
+            href="https://www.cifraclub.com.br/jair-santos/nada-esta-perdido/letra/"
+            target="_blank"
+            >🎸 Cifra</a
+          >
+        </li>
+
+        <li data-tom="G#">
+          <span class="musica">Meu Deus É Grande (G#)</span>
+          <a
+            class="cifra"
+            href="https://www.cifraclub.com.br/talyta-rosy/meu-deus-e-grande/"
             target="_blank"
             >🎸 Cifra</a
           >
         </li>
 
         <li data-tom="A">
-          <span>Te encontrar foi tão bom <strong>(A)</strong></span>
+          <span class="musica">Aquieta minha alma (A)</span>
           <a
             class="cifra"
-            href="https://www.letras.mus.br/ozeias-de-paula/1046984/"
-            target="_blank"
-            >🎸 Cifra</a
-          >
-        </li>
-
-        <li data-tom="C">
-          <span>Como agradecer <strong>(C)</strong></span>
-          <a
-            class="cifra"
-            href="https://www.letras.mus.br/victorino-silva/1587293/"
-            target="_blank"
-            >🎸 Cifra</a
-          >
-        </li>
-
-        <li data-tom="C">
-          <span>Quero dar o melhor de mim <strong>(C)</strong></span>
-          <a
-            class="cifra"
-            href="https://www.letras.com.br/nani-azevedo/excelencia"
-            target="_blank"
-            >🎸 Cifra</a
-          >
-        </li>
-
-        <li data-tom="C">
-          <span>É a Tua Presença <strong>(C)</strong></span>
-          <a
-            class="cifra"
-            href="https://www.letras.mus.br/cancao-louvor/tua-presenca/"
-            target="_blank"
-            >🎸 Cifra</a
-          >
-        </li>
-
-        <li data-tom="A">
-          <span>Está vendo aquele crente <strong>(A)</strong></span>
-          <a
-            class="cifra"
-            href="https://www.letras.mus.br/gerson-rufino/1696244/"
-            target="_blank"
-            >🎸 Cifra</a
-          >
-        </li>
-
-        <li data-tom="Dm">
-          <span>Jesus dos Crentes <strong>(Dm)</strong></span>
-          <a
-            class="cifra"
-            href="https://www.letras.com.br/cicero-nogueira/jesus-dos-crentes"
-            target="_blank"
-            >🎸 Cifra</a
-          >
-        </li>
-
-        <li data-tom="G">
-          <span>Caminhos de Emaús <strong>(G)</strong></span>
-          <a
-            class="cifra"
-            href="https://www.letras.mus.br/eliezer-rosa/1520837/"
-            target="_blank"
-            >🎸 Cifra</a
-          >
-        </li>
-
-        <li data-tom="C">
-          <span>Deus muda situações <strong>(C)</strong></span>
-          <a
-            class="cifra"
-            href="https://www.letras.mus.br/victorino-silva/926898/"
-            target="_blank"
-            >🎸 Cifra</a
-          >
-        </li>
-
-        <li data-tom="G">
-          <span>A sarça <strong>(G)</strong></span>
-          <a
-            class="cifra"
-            href="https://www.letras.mus.br/esteves-jacinto/a-sarca/"
-            target="_blank"
-            >🎸 Cifra</a
-          >
-        </li>
-
-        <li data-tom="Am">
-          <span>Um Dia Tudo Irá findar <strong>(Am)</strong></span>
-          <a
-            class="cifra"
-            href="https://www.vagalume.com.br/esdras/um-dia.html"
+            href="https://www.letras.mus.br/ministerio-zoe/aquieta-minhalma/"
             target="_blank"
             >🎸 Cifra</a
           >
         </li>
 
         <li data-tom="E">
-          <span>Rosto de Cristo <strong>(E)</strong></span>
+          <span class="musica">Feliz Serás (E)</span>
           <a
             class="cifra"
-            href="https://www.letras.mus.br/sarah-farias/o-rosto-de-cristo/"
+            href="https://www.cifraclub.com.br/denise/feliz-seras/letra/"
+            target="_blank"
+            >🎸 Cifra</a
+          >
+        </li>
+
+        <li data-tom="E">
+          <span class="musica">Sigo Cantando (E)</span>
+          <a
+            class="cifra"
+            href="https://www.cifraclub.com.br/mara-dalila/sigo-cantando/letra/"
+            target="_blank"
+            >🎸 Cifra</a
+          >
+        </li>
+
+        <li data-tom="A">
+          <span class="musica">É Adorar (A)</span>
+          <a
+            class="cifra"
+            href="https://www.cifraclub.com.br/amanda-wanessa/e-adorar/"
+            target="_blank"
+            >🎸 Cifra</a
+          >
+        </li>
+
+        <li data-tom="B">
+          <span class="musica">A ditosa cidade (B)</span>
+          <a
+            class="cifra"
+            href="https://www.letras.mus.br/shirley-carvalhaes/224367/"
+            target="_blank"
+            >🎸 Cifra</a
+          >
+        </li>
+
+        <li data-tom="C">
+          <span class="musica">Calmaria (C)</span>
+          <a
+            class="cifra"
+            href="https://www.letras.mus.br/cancao-louvor/calmaria/"
             target="_blank"
             >🎸 Cifra</a
           >
         </li>
 
         <li data-tom="D">
-          <span>Eu lembro Senhor <strong>(D)</strong></span>
+          <span class="musica">Senhor eu vim aqui falar contigo (D)</span>
           <a
             class="cifra"
-            href="https://www.letras.mus.br/gerson-ramalho/1899488/"
+            href="https://www.letras.mus.br/amanda-wanessa/conversa-com-deus/"
+            target="_blank"
+            >🎸 Cifra</a
+          >
+        </li>
+
+        <li data-tom="A">
+          <span class="musica">Tá chorando porque (A)</span>
+          <a
+            class="cifra"
+            href="https://www.letras.mus.br/amanda-wanessa/ta-chorando-por-que/"
+            target="_blank"
+            >🎸 Cifra</a
+          >
+        </li>
+
+        <li data-tom="A">
+          <span class="musica">Às vezes em angústia penso assim (A)</span>
+          <a
+            class="cifra"
+            href="https://www.letras.com.br/elia-oliveira/meu-consolador"
             target="_blank"
             >🎸 Cifra</a
           >
@@ -430,12 +390,8 @@
     </div>
 
     <script>
-      /* CONTADOR AUTOMÁTICO */
-
       const total = document.querySelectorAll("#lista li").length;
       document.getElementById("total").innerText = total;
-
-      /* FILTRO POR TOM */
 
       document
         .getElementById("tomFiltro")
@@ -451,8 +407,6 @@
             }
           });
         });
-
-      /* MODO ESCURO/CLARO */
 
       function modo() {
         document.body.classList.toggle("light");
