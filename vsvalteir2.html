@@ -427,6 +427,19 @@
           >
         </li>
       </ol>
+
+      <p
+        id="mensagemVazia"
+        style="
+          display: none;
+          margin-top: 15px;
+          color: #f4c430;
+          text-align: center;
+          font-weight: bold;
+        "
+      >
+        Não existe música(s) nesta Tonalidade
+      </p>
     </div>
 
     <script>
@@ -442,14 +455,24 @@
         .addEventListener("change", function () {
           const tom = this.value;
           const musicas = document.querySelectorAll("#lista li");
+          const mensagem = document.getElementById("mensagemVazia");
+          let encontrou = false;
 
           musicas.forEach((m) => {
-            if (tom === "todos" || m.dataset.tom === tom) {
-              m.style.display = "flex";
+            const mostrar = tom === "todos" || m.dataset.tom === tom;
+            if (mostrar) {
+              m.style.display = "";
+              encontrou = true;
             } else {
               m.style.display = "none";
             }
           });
+
+          if (tom !== "todos" && !encontrou) {
+            mensagem.style.display = "block";
+          } else {
+            mensagem.style.display = "none";
+          }
         });
 
       /* MODO ESCURO/CLARO */
