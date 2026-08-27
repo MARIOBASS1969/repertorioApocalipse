@@ -104,6 +104,7 @@
       .mens,
       .eya {
         width: 170px;
+        height: 170px;
         border-radius: 10px;
         margin: 10px;
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
@@ -212,6 +213,10 @@
           width: 130px;
         }
 
+        img .eya {
+          height: fit-content;
+        }
+
         li {
           flex-direction: column;
           align-items: flex-start;
@@ -233,7 +238,7 @@
     <div class="container">
       <header>
         <img class="mens" src="images.jpg" />
-        <img class="eya" src="eyane3.jpeg" />
+        <img class="eya" src="eyane41.jpeg" />
       </header>
 
       <h2>🎵 Músicas</h2>
@@ -267,6 +272,16 @@
       </div>
 
       <ol id="lista">
+        <li data-tom="G">
+          <span class="musica">Aquieta mim alma (G)</span>
+          <a
+            class="cifra"
+            href="https://www.letras.mus.br/cancao-louvor/comum-e-imperfeito-part-anna-clara-rocha/"
+            target="_blank"
+            >🎸 Cifra</a
+          >
+        </li>
+
         <li data-tom="Gm">
           <span class="musica">Estou Aqui (Gm)</span>
           <a
