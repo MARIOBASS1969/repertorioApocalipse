@@ -4,197 +4,148 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Repertório Eyane</title>
+    <title>Repertório - Grupo Apocalipse</title>
 
     <style>
+      /* RESET */
+
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        font-family:
-          Segoe UI,
-          Arial;
+        font-family: Arial, Helvetica, sans-serif;
       }
 
-      /* VARIÁVEIS */
-
-      :root {
-        --bg: #0f2027;
-        --card: #203a43;
-        --text: white;
-        --accent: #00eaff;
-      }
-
-      .light {
-        --bg: #f5f5f5;
-        --card: white;
-        --text: #222;
-        --accent: #0077ff;
-      }
-
-      /* BODY */
+      /* FUNDO */
 
       body {
-        background: linear-gradient(135deg, var(--bg), #203a43, #2c5364);
         min-height: 100vh;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding: 20px;
-        color: var(--text);
-        transition: 0.4s;
-      }
-
-      /* BOTÃO VOLTAR */
-
-      .voltar {
-        position: fixed;
-        top: 20px;
-        left: 20px;
-        font-size: 15px;
-        font-weight: bold;
-        text-decoration: none;
-        color: var(--text);
-        background: rgba(255, 255, 255, 0.1);
-        padding: 8px 14px;
-        border-radius: 50%;
-        transition: 0.3s;
-      }
-
-      .voltar:hover {
-        transform: scale(1.2);
-        background: var(--accent);
-      }
-
-      /* BOTÃO MODO */
-
-      .modo {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        cursor: pointer;
-        background: var(--accent);
-        border: none;
-        padding: 10px 18px;
-        border-radius: 20px;
-        font-weight: bold;
+        background: linear-gradient(135deg, #141e30, #243b55);
+        color: white;
       }
 
       /* CONTAINER */
 
       .container {
-        max-width: 900px;
-        width: 100%;
-        background: rgba(255, 255, 255, 0.05);
-        border-radius: 15px;
-        padding: 40px;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-        animation: fade 1s;
-      }
-
-      /* HEADER */
-
-      header {
         text-align: center;
-        margin-bottom: 30px;
+        padding: 40px 20px;
+        animation: entrada 1.5s ease;
       }
 
-      /* IMAGENS */
+      /* IMAGEM */
 
-      .mens,
-      .eya {
-        width: 170px;
-        height: 140px;
-        border-radius: 10px;
-        margin: 10px;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+      .mens {
+        width: 230px;
+        max-width: 90%;
+        border-radius: 15px;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+        margin-bottom: 25px;
         transition: 0.4s;
       }
 
-      .mens:hover,
-      .eya:hover {
-        transform: scale(2.05);
+      .mens:hover {
+        transform: scale(1.07);
       }
 
       /* TITULO */
 
-      h2 {
-        text-align: center;
-        margin: 20px 0;
+      h1 {
+        font-size: 30px;
+        letter-spacing: 2px;
+        margin-bottom: 35px;
       }
 
-      /* CONTADOR */
+      /* MENU */
 
-      .contador {
-        text-align: center;
-        margin-bottom: 20px;
-        font-weight: bold;
-      }
-
-      /* FILTRO */
-
-      .filtro {
-        text-align: center;
-        margin-bottom: 20px;
-      }
-
-      select {
-        padding: 8px;
-        border-radius: 8px;
-        border: none;
-      }
-
-      /* LISTA */
-
-      ol {
-        list-style: none;
-        padding: 0;
-      }
-
-      /* ITEM DA LISTA */
-
-      li {
+      .menu {
         display: flex;
-        justify-content: space-between;
-        align-items: center;
+        justify-content: center;
+        gap: 20px;
         flex-wrap: wrap;
-        padding: 12px;
-        margin-bottom: 10px;
-        background: rgba(255, 255, 255, 0.08);
-        border-radius: 8px;
-        transition: 0.3s;
       }
 
-      li:hover {
-        transform: translateX(6px);
-        background: rgba(255, 255, 255, 0.15);
-      }
+      /* BOTÕES */
 
-      /* TEXTO DA MUSICA */
-
-      .musica {
-        font-weight: 500;
-      }
-
-      /* BOTÃO CIFRA */
-
-      .cifra {
+      .menu a {
         text-decoration: none;
-        background: var(--accent);
         color: black;
-        padding: 6px 12px;
-        border-radius: 6px;
+        padding: 14px 30px;
+        border-radius: 30px;
+        font-weight: bold;
+        transition: 0.4s;
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* BOTÃO AZUL */
+
+      .link2 {
+        background: linear-gradient(45deg, #00c6ff, #0072ff);
+      }
+
+      /* BOTÃO ROSA */
+
+      .link {
+        background: linear-gradient(45deg, #f3c3f1, #ff2bed);
+      }
+
+      .link3 {
+        background: linear-gradient(45deg, #f7971e, #ffd200);
+      }
+
+      .link4 {
+        background: linear-gradient(45deg, #1d650bee, #eed377);
+      }
+      .link5 {
+        background: linear-gradient(45deg, #dbd830ee, #dcee77);
+      }
+
+      /* HOVER */
+
+      .menu a:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+      }
+
+      /* EFEITO BRILHO */
+
+      .menu a::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.3);
+        transform: skewX(-25deg);
+        transition: 0.6s;
+      }
+
+      .menu a:hover::after {
+        left: 120%;
+      }
+
+      /* RODAPÉ */
+
+      footer {
+        margin-top: 60px;
         font-size: 14px;
-        white-space: nowrap;
+        opacity: 0.8;
+        text-align: center;
       }
 
       /* ANIMAÇÃO */
 
-      @keyframes fade {
+      @keyframes entrada {
         from {
           opacity: 0;
-          transform: translateY(-30px);
+          transform: translateY(-40px);
         }
+
         to {
           opacity: 1;
           transform: translateY(0);
@@ -203,275 +154,57 @@
 
       /* RESPONSIVO */
 
-      @media (max-width: 700px) {
-        .container {
-          padding: 20px;
+      @media (max-width: 600px) {
+        h1 {
+          font-size: 22px;
+          line-height: 30px;
         }
 
-        .mens,
-        .eya {
-          width: 130px;
-        }
-
-        img .eya {
-          height: fit-content;
-        }
-
-        li {
+        .menu {
           flex-direction: column;
-          align-items: flex-start;
-          gap: 8px;
+          align-items: center;
         }
 
-        .cifra {
-          align-self: flex-end;
+        .menu a {
+          width: 220px;
+        }
+
+        .mens {
+          width: 130px;
         }
       }
     </style>
   </head>
 
   <body>
-    <a class="voltar" href="index.html">⬅ Início</a>
-
-    <button class="modo" onclick="modo()">🌙 / ☀</button>
-
     <div class="container">
-      <header>
-        <img class="mens" src="images.jpg" />
-        <img class="eya" src="eyane41.jpeg" />
-      </header>
+      <img class="mens" src="images.jpg" alt="Grupo Apocalipse" />
 
-      <h2>🎵 Músicas</h2>
+      <h1>REPERTÓRIO<br />GRUPO APOCALIPSE</h1>
 
-      <div class="contador">Total de músicas: <span id="total"></span></div>
+      <nav class="menu">
+        <a class="link2" href="vsvalteir2.html">Valteir</a>
 
-      <div class="filtro">
-        Filtrar por Tom:
-        <select id="tomFiltro">
-          <option value="todos">Todos</option>
-          <option value="C">C</option>
-          <option value="Cm">Cm</option>
-          <option value="C#">C#</option>
-          <option value="D">D</option>
-          <option value="Dm">Dm</option>
-          <option value="D#">D#</option>
-          <option value="E">E</option>
-          <option value="Em">Em</option>
-          <option value="F">F</option>
-          <option value="Fm">Fm</option>
-          <option value="F#">F#</option>
-          <option value="G">G</option>
-          <option value="Gm">Gm</option>
-          <option value="G#">G#</option>
-          <option value="A">A</option>
-          <option value="Am">Am</option>
-          <option value="A#">A#</option>
-          <option value="B">B</option>
-          <option value="Bm">Bm</option>
-        </select>
-      </div>
+        <a class="link" href="vseyane2.html">Heyane</a>
 
-      <ol id="lista">
+        <a class="link3" href="nice.html">Nice</a>
 
-        <li data-tom="Gm">
-          <span class="musica">Estou Aqui (Gm)</span>
-          <a
-            class="cifra"
-            href="https://www.google.com/search?q=musicaestou+aqui+valdicleide&sca_esv=b1849c266fe4f382&rlz=1C1ONGR_pt-PTBR1156BR1157&biw=1280&bih=551&sxsrf=APpeQntUlz4kRl7_VqrrM8iftpar4xJK4A%3A1783317033440&ei=KUJLatm4Gs_J5OUPkJXSqA0&ved=0ahUKEwiZ8bLSrb2VAxXPJLkGHZCKFNUQ4dUDCBI&uact=5&oq=musicaestou+aqui+valdicleide&gs_lp=Egxnd3Mtd2l6LXNlcnAiHG11c2ljYWVzdG91IGFxdWkgdmFsZGljbGVpZGUyChAhGAoYoAEYwwQyChAhGAoYoAEYwwRIhF9Q2BdYqzZwAXgAkAEAmAHjAqABuwmqAQcwLjYuMC4xuAEDyAEA-AEBmAIHoAKsCMICCBAAGO8FGLADwgILEAAYgAQYogQYsAPCAgcQIxiwAhgnwgIFEAAY7wXCAggQABiABBiiBJgDAIgGAZAGBZIHBzEuNS4wLjGgB58gsgcHMC41LjAuMbgHogjCBwUwLjIuNcgHH4AIAQ&sclient=gws-wiz-serp#fpstate=ive&vld=cid:7bf621ef,vid:rT8FDXdha3I,st:0"
-            target="_blank"
-            >🎸 Cifra</a
-          >
-        </li>
+        <a class="link4" href="nubia.html">Núbia</a>
 
-        <li data-tom="G">
-          <span class="musica">Comum Imperfeito (G)</span>
-          <a
-            class="cifra"
-            href="https://www.letras.mus.br/cancao-louvor/comum-e-imperfeito-part-anna-clara-rocha/"
-            target="_blank"
-            >🎸 Cifra</a
-          >
-        </li>
-        
-        <li data-tom="Dm">
-          <span class="musica">Na beira do rio (Dm)</span>
-          <a
-            class="cifra"
-            href="https://www.letras.mus.br/bella-beatriz/na-beira-do-rio/#google_vignette"
-            target="_blank"
-            >🎸 Cifra</a
-          >
-        </li>
+        <a class="link5" href="aninha.html">Aninha/Larinha</a>
+      </nav>
 
-        <li data-tom="D">
-          <span class="musica">Nele Esperarei - Sara Farias (D)</span>
-          <a
-            class="cifra"
-            href="https://www.letras.mus.br/eula-cris/nele-esperarei-part-sarah-farias/"
-            target="_blank"
-            >🎸 Cifra</a
-          >
-        </li>
-
-        <li data-tom="F">
-          <span class="musica">Nada está perdido (F)</span>
-          <a
-            class="cifra"
-            href="https://www.cifraclub.com.br/jair-santos/nada-esta-perdido/letra/"
-            target="_blank"
-            >🎸 Cifra</a
-          >
-        </li>
-
-        <li data-tom="G#">
-          <span class="musica">Meu Deus É Grande (G#)</span>
-          <a
-            class="cifra"
-            href="https://www.cifraclub.com.br/talyta-rosy/meu-deus-e-grande/"
-            target="_blank"
-            >🎸 Cifra</a
-          >
-        </li>
-
-        <li data-tom="A">
-          <span class="musica">Aquieta minha alma (A)</span>
-          <a
-            class="cifra"
-            href="https://www.letras.mus.br/ministerio-zoe/aquieta-minhalma/"
-            target="_blank"
-            >🎸 Cifra</a
-          >
-        </li>
-
-        <li data-tom="E">
-          <span class="musica">Feliz Serás (E)</span>
-          <a
-            class="cifra"
-            href="https://www.cifraclub.com.br/denise/feliz-seras/letra/"
-            target="_blank"
-            >🎸 Cifra</a
-          >
-        </li>
-
-        <li data-tom="E">
-          <span class="musica">Sigo Cantando (E)</span>
-          <a
-            class="cifra"
-            href="https://www.cifraclub.com.br/mara-dalila/sigo-cantando/letra/"
-            target="_blank"
-            >🎸 Cifra</a
-          >
-        </li>
-
-        <li data-tom="A">
-          <span class="musica">É Adorar (A)</span>
-          <a
-            class="cifra"
-            href="https://www.cifraclub.com.br/amanda-wanessa/e-adorar/"
-            target="_blank"
-            >🎸 Cifra</a
-          >
-        </li>
-
-        <li data-tom="B">
-          <span class="musica">A ditosa cidade (B)</span>
-          <a
-            class="cifra"
-            href="https://www.letras.mus.br/shirley-carvalhaes/224367/"
-            target="_blank"
-            >🎸 Cifra</a
-          >
-        </li>
-
-        <li data-tom="C">
-          <span class="musica">Calmaria (C)</span>
-          <a
-            class="cifra"
-            href="https://www.letras.mus.br/cancao-louvor/calmaria/"
-            target="_blank"
-            >🎸 Cifra</a
-          >
-        </li>
-
-        <li data-tom="D">
-          <span class="musica">Senhor eu vim aqui falar contigo (D)</span>
-          <a
-            class="cifra"
-            href="https://www.letras.mus.br/amanda-wanessa/conversa-com-deus/"
-            target="_blank"
-            >🎸 Cifra</a
-          >
-        </li>
-
-        <li data-tom="A">
-          <span class="musica">Tá chorando porque (A)</span>
-          <a
-            class="cifra"
-            href="https://www.letras.mus.br/amanda-wanessa/ta-chorando-por-que/"
-            target="_blank"
-            >🎸 Cifra</a
-          >
-        </li>
-
-        <li data-tom="A">
-          <span class="musica">Às vezes em angústia penso assim (A)</span>
-          <a
-            class="cifra"
-            href="https://www.letras.com.br/elia-oliveira/meu-consolador"
-            target="_blank"
-            >🎸 Cifra</a
-          >
-        </li>
-      </ol>
-
-      <p
-        id="mensagemVazia"
-        style="
-          display: none;
-          margin-top: 15px;
-          color: #f4c430;
-          text-align: center;
-          font-weight: bold;
-        "
-      >
-        Não existe música(s) nesta Tonalidade
-      </p>
+      <footer>
+        <p>® Produzido By → Mário Oliveira</p>
+      </footer>
     </div>
 
     <script>
-      const total = document.querySelectorAll("#lista li").length;
-      document.getElementById("total").innerText = total;
+      /* pequena animação ao carregar */
 
-      document
-        .getElementById("tomFiltro")
-        .addEventListener("change", function () {
-          const tom = this.value;
-          const musicas = document.querySelectorAll("#lista li");
-          const mensagem = document.getElementById("mensagemVazia");
-          let encontrou = false;
-
-          musicas.forEach((m) => {
-            const mostrar = tom === "todos" || m.dataset.tom === tom;
-            if (mostrar) {
-              m.style.display = "";
-              encontrou = true;
-            } else {
-              m.style.display = "none";
-            }
-          });
-
-          if (tom !== "todos" && !encontrou) {
-            mensagem.style.display = "block";
-          } else {
-            mensagem.style.display = "none";
-          }
-        });
-
-      function modo() {
-        document.body.classList.toggle("light");
-      }
+      window.addEventListener("load", () => {
+        document.body.style.opacity = "1";
+      });
     </script>
   </body>
 </html>
-
-<!-- Atualiza��o GitHub Pages 29/08/2026 -->
