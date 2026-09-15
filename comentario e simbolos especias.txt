@@ -1,0 +1,60 @@
+Simbolos especiais
+
+<p>
+            &lt;         <!-- menor <   --> 
+            &gt;         <!-- maior >   --> 
+            &le;         <!-- menor ≤   --> 
+            &ge; <br>    <!-- maior ≥   -->
+
+            &pound;      <!-- libra £   -->
+            &yen;        <!-- yen   ¥   -->
+            &euro; <br>  <!-- euro  €   -->
+
+            &COPY;       <!-- cia   ©   --> 
+                  
+                      
+            &reg;        <!--registrada ®  -->
+            &trade;      <!--trade marca ™ -->
+            &permil;     <!--porcetagem dividida por mil ‰ -->
+            &sum;        <!--soma ∑     -->
+            &infin;      <!--infinito ∞ -->
+            &times;      <!--multiplicação × -->
+
+
+            
+
+
+
+	    &plusmn;     <!-- mais ou menos ± -->
+	    &oplus;      <!-- + dentro da circunferência ⊕ -->
+            &radic;      <!-- raiz quadrada √              -->
+            &ne;         <!-- diferente ≠                  -->
+            &delta;      <!-- delta minúsculo  δ           -->
+            &Delta;      <!-- delta maisúsculo Δ           -->
+            &lambda;     <!-- lambda           λ           -->
+            &omega       <!-- omega            ω           -->
+	    &phi;        <!-- phi              φ           -->
+            	 		       
+
+				SETAS
+	     
+            &larr;      <!-- ← esquerda      -->
+            &rarr;      <!-- → direita       -->
+            &uarr;      <!-- ↑ pra cima      -->
+            &darr;      <!-- ↓ pra baixo     -->
+            &narr;      <!-- ↔ dois lados    -->
+
+	     
+             cartas de baralho:             
+
+	     &spades;   
+             &clubs;
+             &hearts;
+             &diamond;				
+
+
+
+
+
+
+            
