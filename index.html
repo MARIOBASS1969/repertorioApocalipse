@@ -152,6 +152,9 @@
         margin-top: 16px;
       }
 
+
+
+
       .filtros button {
         padding: 9px 16px;
         font-family: inherit;
@@ -166,6 +169,56 @@
           background 0.25s ease,
           color 0.25s ease;
       }
+
+      /* Cores individuais dos botões */
+.filtros button.filtro-todos {
+    background: #c9a45c;
+    color: #0b1020;
+    border-color: #c9a45c;
+}
+
+.filtros button.filtro-valteir {
+    background: #1565c0;
+    color: white;
+    border-color: #1565c0;
+}
+
+.filtros button.filtro-heyanne {
+    background: #ad1457;
+    color: white;
+    border-color: #ad1457;
+}
+
+.filtros button.filtro-nice {
+    background: #2e7d32;
+    color: white;
+    border-color: #2e7d32;
+}
+
+.filtros button.filtro-nubia {
+    background: #7b1fa2;
+    color: white;
+    border-color: #7b1fa2;
+}
+
+.filtros button.filtro-aninha {
+    background: #e65100;
+    color: white;
+    border-color: #e65100;
+}
+
+/* Efeito ao passar o mouse */
+.filtros button:hover {
+    filter: brightness(1.2);
+    transform: translateY(-2px);
+}
+
+/* Botão selecionado */
+.filtros button[aria-pressed="true"] {
+    outline: 2px solid white;
+    outline-offset: 3px;
+    font-weight: 700;
+}
 
       .filtros button:hover {
         background: rgba(255, 255, 255, 0.16);
@@ -371,17 +424,48 @@
       }
 
       function criaBotao(texto, cantor) {
-        const el = document.createElement("button");
-        el.type = "button";
-        el.textContent = texto;
-        el.addEventListener("click", () => {
-          filtro = filtro === cantor ? null : cantor; // clicar de novo desmarca
-          marcaBotoes();
-          render();
-        });
-        botoes.push({ el, cantor });
-        filtros.appendChild(el);
-      }
+    const el = document.createElement("button");
+
+    el.type = "button";
+    el.textContent = texto;
+
+    // Define uma classe de cor para cada botão
+    if (!cantor) {
+        el.classList.add("filtro-todos");
+    } else {
+        const classes = {
+            "Valteir": "filtro-valteir",
+            "Heyanne": "filtro-heyanne",
+            "Nice": "filtro-nice",
+            "Nubia": "filtro-nubia",
+            "Aninha/Larinha": "filtro-aninha"
+        };
+
+        el.classList.add(classes[cantor.nome]);
+    }
+
+    el.addEventListener("click", () => {
+        filtro = filtro === cantor ? null : cantor;
+        marcaBotoes();
+        render();
+    });
+
+    botoes.push({ el, cantor });
+    filtros.appendChild(el);
+}
+
+      // function criaBotao(texto, cantor) {
+      //   const el = document.createElement("button");
+      //   el.type = "button";
+      //   el.textContent = texto;
+      //   el.addEventListener("click", () => {
+      //     filtro = filtro === cantor ? null : cantor; // clicar de novo desmarca
+      //     marcaBotoes();
+      //     render();
+      //   });
+      //   botoes.push({ el, cantor });
+      //   filtros.appendChild(el);
+      // }
 
       criaBotao("Todos", null);
       CANTORES.forEach((c) => criaBotao(c.nome, c));
