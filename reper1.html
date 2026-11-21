@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Repertório Apocalipse</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Source+Sans+3:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --navy-900: #0b1020;
+        --navy-800: #151b3d;
+        --navy-700: #1e2753;
+        --gold: #c9a45c;
+        --gold-soft: #e0c88f;
+        --ivory: #f4efe4;
+        --muted: #a9b4c4;
+        --line: rgba(201, 164, 92, 0.3);
+        --font-title: "Cormorant Garamond", Georgia, serif;
+        --font-body: "Source Sans 3", "Segoe UI", Arial, sans-serif;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: var(--font-body);
+        font-size: 1.05rem;
+        color: var(--ivory);
+        line-height: 1.6;
+        min-height: 100vh;
+        background: linear-gradient(
+          135deg,
+          #0c0e2e 0%,
+          #261862 45%,
+          #085262 100%
+        );
+        background-attachment: fixed;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      main {
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 56px 16px 64px;
+      }
+
+      h1 {
+        font-family: var(--font-title);
+        font-size: clamp(2.2rem, 7vw, 3.2rem);
+        line-height: 1.1;
+        text-align: center;
+      }
+
+      h1::after {
+        content: "";
+        display: block;
+        width: 64px;
+        height: 2px;
+        background: var(--gold);
+        margin: 16px auto 0;
+      }
+
+      .sub {
+        text-align: center;
+        color: var(--muted);
+        margin: 16px 0 32px;
+      }
+
+      .busca input {
+        width: 100%;
+        padding: 14px 16px;
+        font-size: 16px;
+        font-family: inherit;
+        color: #fff;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.28);
+        border-radius: 10px;
+      }
+
+      .busca input::placeholder {
+        color: #cfd6e6;
+      }
+
+      .busca input:focus {
+        outline: none;
+        border-color: var(--gold-soft);
+        background: rgba(255, 255, 255, 0.16);
+      }
+
+      #contador {
+        color: var(--muted);
+        font-size: 0.92rem;
+        margin: 14px 4px 10px;
+      }
+
+      #lista {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      #lista li {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+        padding: 16px 18px;
+        background: rgba(21, 27, 61, 0.85);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-left: 3px solid var(--gold);
+        border-radius: 10px;
+      }
+
+      .nome {
+        font-family: var(--font-title);
+        font-size: 1.35rem;
+        font-weight: 700;
+        line-height: 1.2;
+      }
+
+      .cantor {
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .tom {
+        flex: 0 0 auto;
+        min-width: 52px;
+        text-align: center;
+        padding: 6px 12px;
+        border: 1px solid var(--gold);
+        border-radius: 999px;
+        color: var(--gold-soft);
+        font-weight: 600;
+      }
+
+      .acoes {
+        flex: 0 0 auto;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .cifra {
+        padding: 6px 14px;
+        border-radius: 999px;
+        background: var(--gold);
+        color: var(--navy-900);
+        font-weight: 600;
+        font-size: 0.92rem;
+        text-decoration: none;
+        transition: background 0.25s ease;
+      }
+
+      .cifra:hover,
+      .cifra:focus-visible {
+        background: var(--gold-soft);
+        outline: none;
+      }
+
+      .aviso {
+        text-align: center;
+        color: var(--muted);
+        padding: 28px 12px;
+      }
+
+      @media (max-width: 480px) {
+        main {
+          padding-top: 40px;
+        }
+
+        #lista li {
+          flex-wrap: wrap;
+        }
+
+        #lista li {
+          padding: 14px;
+        }
+
+        .nome {
+          font-size: 1.2rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <h1>Repertório Apocalipse</h1>
+      <p class="sub">Músicas, cantores e tons do grupo.</p>
+
+      <div class="busca">
+        <input
+          type="search"
+          id="busca"
+          placeholder="Buscar por música, cantor ou tom"
+          autocomplete="off"
+        />
+      </div>
+
+      <p id="contador"></p>
+      <ul id="lista"></ul>
+      <p class="aviso" id="aviso">Carregando o repertório…</p>
+    </main>
+
+    <script type="module">
+      const firebaseConfig = {
+        apiKey: "AIzaSyCLbWRaNhWUwXuFMidUuP3m8HnymfLr_9c",
+        authDomain: "repertorio-apocalipse.firebaseapp.com",
+        projectId: "repertorio-apocalipse",
+        storageBucket: "repertorio-apocalipse.firebasestorage.app",
+        messagingSenderId: "947341129375",
+        appId: "1:947341129375:web:93fa862550daf3eecf94aa",
+      };
+
+      const COLECAO = "repertorio_musicas";
+
+      const lista = document.getElementById("lista");
+      const busca = document.getElementById("busca");
+      const contador = document.getElementById("contador");
+      const aviso = document.getElementById("aviso");
+      let musicas = [];
+
+      function normaliza(t) {
+        return (t || "")
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "")
+          .toLowerCase();
+      }
+
+      function render() {
+        const q = normaliza(busca.value.trim());
+        const achadas = musicas.filter((m) =>
+          normaliza(`${m.nome} ${m.cantor} ${m.tom}`).includes(q),
+        );
+
+        lista.replaceChildren();
+        achadas.forEach((m) => {
+          const li = document.createElement("li");
+          const info = document.createElement("div");
+          const nome = document.createElement("div");
+          const cantor = document.createElement("div");
+          const tom = document.createElement("span");
+
+          nome.className = "nome";
+          cantor.className = "cantor";
+          tom.className = "tom";
+          nome.textContent = m.nome || "";
+          cantor.textContent = m.cantor || "";
+          tom.textContent = m.tom || "—";
+
+          const acoes = document.createElement("div");
+          acoes.className = "acoes";
+
+          // só aceita links http/https (evita endereços perigosos)
+          if (/^https?:\/\//i.test((m.cifra || "").trim())) {
+            const a = document.createElement("a");
+            a.className = "cifra";
+            a.href = m.cifra.trim();
+            a.target = "_blank";
+            a.rel = "noopener noreferrer";
+            a.textContent = "Cifra";
+            acoes.appendChild(a);
+          }
+          acoes.appendChild(tom);
+
+          info.append(nome, cantor);
+          li.append(info, acoes);
+          lista.appendChild(li);
+        });
+
+        contador.textContent = musicas.length
+          ? `${achadas.length} de ${musicas.length} músicas`
+          : "";
+
+        if (!musicas.length) {
+          aviso.textContent = "Nenhuma música cadastrada ainda.";
+          aviso.hidden = false;
+        } else if (!achadas.length) {
+          aviso.textContent = "Nenhuma música encontrada para essa busca.";
+          aviso.hidden = false;
+        } else {
+          aviso.hidden = true;
+        }
+      }
+
+      busca.addEventListener("input", render);
+
+      try {
+        const V = "13.4.0";
+        const { initializeApp } = await import(
+          `https://www.gstatic.com/firebasejs/${V}/firebase-app.js`
+        );
+        const { getFirestore, collection, getDocs } = await import(
+          `https://www.gstatic.com/firebasejs/${V}/firebase-firestore.js`
+        );
+
+        const db = getFirestore(initializeApp(firebaseConfig));
+        const docs = await getDocs(collection(db, COLECAO));
+
+        musicas = docs.docs
+          .map((d) => d.data())
+          .sort((a, b) => (a.nome || "").localeCompare(b.nome || "", "pt-BR"));
+        render();
+      } catch (e) {
+        console.warn("Repertório:", e);
+        aviso.textContent =
+          "Não foi possível carregar o repertório agora. Tente novamente em instantes.";
+      }
+    </script>
+  </body>
+</html>
